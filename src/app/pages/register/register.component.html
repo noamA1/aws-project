@@ -5,14 +5,13 @@
         <div class="col-lg-5 col-md-6">
           <h1 class="text-white">Welcome!</h1>
           <p class="text-lead text-light">Use these awesome forms to
-               login or create new account in your project for free.</p>
+            login or create new account in your project for free.</p>
         </div>
       </div>
     </div>
   </div>
   <div class="separator separator-bottom separator-skew zindex-100">
-    <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none"
-       version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
     </svg>
   </div>
@@ -33,8 +32,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                 </div>
-                <input  class="form-control" [(ngModel)]="lastname" placeholder="Last Name" 
-                        type="text" name="first">
+                <input class="form-control" [(ngModel)]="lastname" placeholder="Last Name" type="text" name="first">
               </div>
             </div>
             <div class="form-group">
@@ -42,8 +40,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                 </div>
-                <input  class="form-control" [(ngModel)]="firstname" placeholder="First Name" 
-                        type="text" name="first">
+                <input class="form-control" [(ngModel)]="firstname" placeholder="First Name" type="text" name="first">
               </div>
             </div>
             <div class="form-group">
@@ -51,32 +48,31 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                 </div>
-                <input class="form-control" [(ngModel)]="phone" placeholder="Phone number" type="tel">
+                <input class="form-control" [(ngModel)]="phone" placeholder="Phone number" type="tel" name="phone">
               </div>
             </div>
             <div class="form-group">
-            <label style="margin-right: 7px;">Gender:  </label>
-            <div class="form-check-inline">
-              <label class="form-check-label">
-                <input  type="radio" class="form-check-input" name="optradio" value="male" 
-                        [(ngModel)]="gender" checked>Male
-              </label>
-            </div>
-            <div class="form-check-inline">
-              <label class="form-check-label">
-                <input  type="radio" class="form-check-input" name="optradio" value="female" 
-                        [(ngModel)]="gender">Female
-              </label>
-            </div>
+              <label style="margin-right: 7px;">Gender: </label>
+              <div class="form-check-inline">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optradio" value="male" [(ngModel)]="gender"
+                    checked>Male
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optradio" value="female"
+                    [(ngModel)]="gender">Female
+                </label>
+              </div>
 
-          </div>
+            </div>
             <div class="form-group">
               <div class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                 </div>
-                <input class="form-control" [(ngModel)]="email" placeholder="Email" type="email" 
-                       name="email">
+                <input class="form-control" [(ngModel)]="email" placeholder="Email" type="email" name="email">
               </div>
             </div>
             <div class="form-group">
@@ -84,17 +80,26 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                 </div>
-                <input  class="form-control" [(ngModel)]="password" placeholder="Password" 
-                        type="password" name="password">
+                <input class="form-control" [(ngModel)]="password" placeholder="Password" type="password"
+                  name="password">
               </div>
             </div>
-            <div class="text-muted font-italic"><small>password strength: 
-                  <span class="text-success font-weight-700">strong</span></small></div>
-            <div class="row my-4">
+            <!-- <div class="text-muted font-italic"><small>password strength:
+                <span class="text-success font-weight-700">strong</span></small></div> -->
 
+            <div class="form-group">
+              <label style="margin-right: 7px;">Upload your profile imge: </label>
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                </div>
+                
+                <input class="form-control" (change)="onFilePicked($event)" placeholder="Upload File" type="file">
+                <p *ngIf="errorMsg"> Please Select A File</p>
+              </div>
             </div>
             <div class="text-center">
-              <button type="button" class="btn btn-primary mt-4" (click) = "signUp()">Create account</button>
+              <button type="button" class="btn btn-primary mt-4" (click)="signUp()">Create account</button>
             </div>
           </form>
         </div>

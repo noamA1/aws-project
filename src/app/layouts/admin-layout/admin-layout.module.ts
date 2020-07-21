@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ClipboardModule } from 'ngx-clipboard';
+import { WebcamModule } from 'ngx-webcam';
 
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
@@ -13,7 +14,7 @@ import { UserProfileComponent } from '../../pages/user-profile/user-profile.comp
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SummaryTableComponent } from 'src/app/pages/summary-table/summary-table.component';
-
+import { AddShiftComponent } from 'src/app/pages/add-shift/add-shift.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -23,7 +24,9 @@ import { SummaryTableComponent } from 'src/app/pages/summary-table/summary-table
     FormsModule,
     HttpClientModule,
     NgbModule,
-    ClipboardModule
+    ClipboardModule,
+    
+    
   ],
   declarations: [
     DashboardComponent,
@@ -31,7 +34,9 @@ import { SummaryTableComponent } from 'src/app/pages/summary-table/summary-table
     TablesComponent,
     IconsComponent,
     MapsComponent,
-    SummaryTableComponent
+    SummaryTableComponent,
+    AddShiftComponent,
+    WebcamModule
 
   ]
 })

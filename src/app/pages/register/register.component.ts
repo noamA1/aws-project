@@ -32,6 +32,7 @@ export class RegisterComponent implements OnInit {
     console.log(this.lastname)
     console.log(this.email)
     console.log(this.password)
+    console.log(this.fileObj);
 
   }
 

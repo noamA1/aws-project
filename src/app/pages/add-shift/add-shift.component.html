@@ -24,10 +24,7 @@
           <button class="btn btn-primary" (click)="triggerSnapshot()">Capture Image</button>
         </div>
         <div (pictureTaken)="handleImage1($event)"></div>
-        
-        <div class="snapshot" *ngIf="webcamImage">
-          <img [src]="webcamImage.imageAsDataUrl" />
-        </div>
+
       </div>
     </div>
   </div>

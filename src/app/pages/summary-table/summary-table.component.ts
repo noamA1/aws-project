@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./summary-table.component.css']
 })
 export class SummaryTableComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit(): void {

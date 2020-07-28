@@ -13,7 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 
-import { MatRadioModule } from '@angular/material/radio';
+
 
 
 @NgModule({
@@ -25,18 +25,12 @@ import { MatRadioModule } from '@angular/material/radio';
     NgbModule,
     RouterModule,
     AppRoutingModule,
-    MatRadioModule
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    
-    
 
-  
-
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

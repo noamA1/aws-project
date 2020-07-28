@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 export class LoginComponent implements OnInit, OnDestroy {
   email: string;
   password: string;
-  constructor() {}
+  constructor(public auth:AuthService) {}
 
   ngOnInit() {
   }
@@ -16,7 +17,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   signIn(){
-    console.log(this.email)
-    console.log(this.password)
+    this.auth.logIn(this.email,this.password)
   }
 }

@@ -43,9 +43,5 @@ export class AddShiftComponent implements OnInit {
     return this.trigger.asObservable();
   }
 
-  public webcamImage: WebcamImage = null;
-
-  handleImage1(webcamImage: WebcamImage) {
-    this.webcamImage = webcamImage;
-  }
+ 
 }

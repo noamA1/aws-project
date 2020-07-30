@@ -16,6 +16,12 @@ export class NavbarComponent implements OnInit {
   userEmail;
   isconnected;
   message: boolean;
+  user: any;
+  email: string;
+  firstName: string;
+  lastName:string;
+  gender: string;
+  age:number;
 
   constructor(location: Location,  private element: ElementRef, private router: Router, public auth: AuthService) {
     this.location = location;
@@ -29,6 +35,15 @@ export class NavbarComponent implements OnInit {
       if (this.message){
         this.userEmail = this.isconnected.user
       }
+
+      this.auth.getUser(this.userEmail).subscribe(user => {
+        this.user = user;
+        this.email = this.user.items[0].email;
+        this.firstName = this.user.items[0].firstName;
+        this.lastName = this.user.items[0].lastName;
+        this.gender = this.user.items[0].gender;
+        this.age = this.user.items[0].age;
+      })
       // console.log(this.userEmail); 
     });
     this.listTitles = ROUTES.filter(listTitle => listTitle);

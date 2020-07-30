@@ -32,11 +32,6 @@ export class UserProfileComponent implements OnInit {
         this.last = this.user.items[0].lastName;
         this.gender = this.user.items[0].gender;
         this.age = this.user.items[0].age;
-        console.log(this.email)
-        console.log(this.first)
-        console.log(this.last)
-        console.log(this.age)
-        console.log(this.gender)
       })
     }); 
   }

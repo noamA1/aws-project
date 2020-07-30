@@ -64,7 +64,7 @@ export class AuthService {
   confirmFunction(email: string, code){
     console.log(email)
     this.http.post("http://ec2-3-234-56-126.compute-1.amazonaws.com/auth/confirm",
-    {email:email,confirmationCode: code }).subscribe(res =>{
+    {email:email, confirmationCode: `${code}` }).subscribe(res =>{
       console.log(res);
     });
   }

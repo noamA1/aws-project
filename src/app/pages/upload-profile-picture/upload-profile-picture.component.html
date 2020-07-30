@@ -1,0 +1,40 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+        <div class="header-body">
+            <!-- Card stats -->
+            <div class="row">
+                <div class="col-lg-7 col-md-10">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt--8 pb-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-5 col-md-7">
+      <div class="card bg-secondary shadow border-0">
+        <div class="card-header bg-transparent pb-5">
+            Upload your profile image:
+        </div>
+        <div class="card-body px-lg-5 py-lg-5">
+            <form role="form">
+                <div class="form-group">
+                    <div class="input-group input-group-alternative mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                        </div>
+                
+                        <input accept="image/*" class="form-control" name="image" (change)="onFilePicked($event)"
+                            placeholder="Upload File" type="file">
+                        <p *ngIf="errorMsg"> Please Select A File</p>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-primary mt-4" (click)="sendImge()">send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>

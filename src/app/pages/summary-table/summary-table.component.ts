@@ -12,4 +12,8 @@ export class SummaryTableComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  deleteShift(){
+    
+  }
+
 }

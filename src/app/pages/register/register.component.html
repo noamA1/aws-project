@@ -86,23 +86,6 @@
             </div>
             <!-- <div class="text-muted font-italic"><small>password strength:
                 <span class="text-success font-weight-700">strong</span></small></div> -->
-
-            <div class="form-group">
-              <label style="margin-right: 7px;">Upload your profile imge: </label>
-              <div class="input-group input-group-alternative mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                </div>
-                
-                <input
-                accept="image/*" class="form-control" name="image" (change)="onFilePicked($event)" 
-                        placeholder="Upload File" type="file">
-                <p *ngIf="errorMsg"> Please Select A File</p>
-              </div>
-              <div class="text-center">
-                <button type="button" class="btn btn-primary mt-4" (click)="sendImge()">send</button>
-              </div>
-            </div>
             <div class="text-center">
               <button type="button" class="btn btn-primary mt-4" (click)="signUp()">Create account</button>
             </div>

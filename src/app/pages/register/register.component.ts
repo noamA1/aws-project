@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   phone: string;
   password: string;
 
-  fileObj: File;
+
 
   constructor(public auth: AuthService, private router: Router) {
   }
@@ -28,16 +28,5 @@ export class RegisterComponent implements OnInit {
 
     this.auth.register(this.email, this.password, this.firstname, this.lastname, this.gender);
     
-  }
-
-  onFilePicked(event) {
-    this.fileObj = event.target.files[0] as File;
-  }
-  
-  sendImge() {
-    console.log(this.fileObj);
-    const fd = new FormData();
-    fd.append('image', this.fileObj, this.fileObj.name);
-    this.auth.sendImage(fd);
   }
 }

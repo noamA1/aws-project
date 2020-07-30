@@ -10,7 +10,7 @@
       <img src="./assets/img/brand/red.png" class="navbar-brand-img" alt="...">
     </a>
     <!-- User -->
-    <ul class="nav align-items-center d-md-none">
+    <ul *ngIf ="message"  class="nav align-items-center d-md-none">
       <li class="nav-item" ngbDropdown placement="bottom-right">
         <a class="nav-link" role="button" ngbDropdownToggle>
           <div class="media align-items-center">

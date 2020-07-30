@@ -9,6 +9,7 @@ import { LoginComponent } from '../../pages/login/login.component';
 import { RegisterComponent } from '../../pages/register/register.component';
 import { ForgotPasswordComponent } from 'src/app/pages/forgot-password/forgot-password.component';
 import { ConfrimComponent } from 'src/app/pages/confrim/confrim.component';
+import { UploadProfilePictureComponent } from 'src/app/pages/upload-profile-picture/upload-profile-picture.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { ConfrimComponent } from 'src/app/pages/confrim/confrim.component';
     RegisterComponent,
     ForgotPasswordComponent,
     ConfrimComponent,
+    UploadProfilePictureComponent,
   ]
 })
 export class AuthLayoutModule { }

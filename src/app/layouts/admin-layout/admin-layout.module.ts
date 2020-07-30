@@ -13,6 +13,11 @@ import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SummaryTableComponent } from 'src/app/pages/summary-table/summary-table.component';
 import { AddShiftComponent } from 'src/app/pages/add-shift/add-shift.component';
+import { EditProfileComponent } from 'src/app/pages/edit-profile/edit-profile.component';
+import { EditShiftComponent } from 'src/app/pages/edit-shift/edit-shift.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -23,9 +28,10 @@ import { AddShiftComponent } from 'src/app/pages/add-shift/add-shift.component';
     HttpClientModule,
     NgbModule,
     ClipboardModule,
-    WebcamModule
-    
-    
+    WebcamModule ,
+    MatCardModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   declarations: [
     DashboardComponent,
@@ -33,9 +39,13 @@ import { AddShiftComponent } from 'src/app/pages/add-shift/add-shift.component';
     TablesComponent,
     SummaryTableComponent,
     AddShiftComponent,
-    
-
-  ]
+    EditProfileComponent,
+    EditShiftComponent,
+  ],
+  providers: [  
+    MatDatepickerModule,
+    MatNativeDateModule  
+  ],
 })
 
 export class AdminLayoutModule {}

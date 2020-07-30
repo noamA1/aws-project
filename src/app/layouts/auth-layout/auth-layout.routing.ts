@@ -8,6 +8,6 @@ import { ConfrimComponent } from 'src/app/pages/confrim/confrim.component';
 export const AuthLayoutRoutes: Routes = [
     { path: 'login',          component: LoginComponent },
     { path: 'register',       component: RegisterComponent },
-    { path: 'register-confrim',       component: ConfrimComponent },
+    { path: 'register-confrim/:email',       component: ConfrimComponent },
     { path: 'forgot-password',       component: ForgotPasswordComponent }
 ];

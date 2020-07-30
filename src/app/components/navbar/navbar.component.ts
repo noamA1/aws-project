@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/shared/auth.service';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
@@ -12,7 +13,7 @@ export class NavbarComponent implements OnInit {
   public focus;
   public listTitles: any[];
   public location: Location;
-  constructor(location: Location,  private element: ElementRef, private router: Router) {
+  constructor(location: Location,  private element: ElementRef, private router: Router, public auth: AuthService) {
     this.location = location;
   }
 
@@ -33,4 +34,7 @@ export class NavbarComponent implements OnInit {
     return 'Dashboard';
   }
 
+  logOut(){
+    this.auth.logout();
+  }
 }

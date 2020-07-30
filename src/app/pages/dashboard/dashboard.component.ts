@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/shared/auth.service';
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js';
 
@@ -20,11 +21,20 @@ export class DashboardComponent implements OnInit {
   public data: any;
   public clicked: boolean = true;
   public clicked1: boolean = false;
+  userEmail;
+  isconnected;
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
-
+    this.auth.isloggedin().subscribe(data => {
+      this.isconnected = data
+      if (this.isconnected.message){
+        this.userEmail = this.isconnected.user
+      }
+      console.log(this.userEmail); 
+    });
+  
     this.datasets = [
       [0, 20, 10, 30, 15, 40, 20, 60, 60],
       [0, 20, 5, 25, 10, 30, 15, 40, 40]

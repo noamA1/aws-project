@@ -1,4 +1,7 @@
+import {  ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/shared/auth.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-confrim',
@@ -7,13 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfrimComponent implements OnInit {
 
-  code: string;
-  constructor() { }
+  code;
+  userEmail;
+
+
+  
+  constructor(public auth: AuthService, private activatedroute:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activatedroute.params.subscribe(parms =>{
+      this.userEmail = parms.email
+      console.log(this.userEmail)
+    })
   }
 
   confrimCode(){
-    console.log(this.code)
+    this.auth.confirmFunction(this.userEmail, +this.code)
   }
 }

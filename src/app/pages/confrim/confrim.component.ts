@@ -13,8 +13,6 @@ export class ConfrimComponent implements OnInit {
   code;
   userEmail;
 
-
-  
   constructor(public auth: AuthService, private activatedroute:ActivatedRoute) { }
 
   ngOnInit(): void {

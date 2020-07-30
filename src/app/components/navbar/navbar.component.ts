@@ -25,16 +25,15 @@ export class NavbarComponent implements OnInit {
 
   constructor(location: Location,  private element: ElementRef, private router: Router, public auth: AuthService) {
     this.location = location;
-    
+    this.userEmail = this.router.getCurrentNavigation().extras.state.email;
+    console.log(this.router.getCurrentNavigation().extras.state.email);
   }
 
   ngOnInit() {
     this.auth.isloggedin().subscribe(data => {
       this.isconnected = data
       this.message = this.isconnected.message
-      if (this.message){
-        this.userEmail = this.isconnected.user
-      }
+  
 
       this.auth.getUser(this.userEmail).subscribe(user => {
         this.user = user;
@@ -43,6 +42,8 @@ export class NavbarComponent implements OnInit {
         this.lastName = this.user.items[0].lastName;
         this.gender = this.user.items[0].gender;
         this.age = this.user.items[0].age;
+        console.log(this.firstName); 
+        console.log(this.lastName); 
       })
       // console.log(this.userEmail); 
     });

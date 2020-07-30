@@ -40,6 +40,8 @@ export class AuthService {
       () => {
           console.log("The POST observable is now completed.");
       });
+
+      this.router.navigate(['/dashboard'], { state: { email: email } });
   }
 
   getUser(email){
@@ -53,6 +55,7 @@ export class AuthService {
     this.http.post("http://ec2-3-234-56-126.compute-1.amazonaws.com/auth/post-image",
     image).subscribe(res =>{
       console.log(res);
+      this.router.navigate(['/dashboard']);
     });
   }
 
@@ -66,6 +69,7 @@ export class AuthService {
     this.http.post("http://ec2-3-234-56-126.compute-1.amazonaws.com/auth/confirm",
     {email:email, confirmationCode: `${code}` }).subscribe(res =>{
       console.log(res);
+      this.router.navigate(['/upload']);
     });
   }
 
@@ -73,6 +77,7 @@ export class AuthService {
     this.http.post("http://ec2-3-234-56-126.compute-1.amazonaws.com/auth/logout",{})
               .subscribe(res =>{
                 console.log(res)
+                this.router.navigate(['/login']);
               })
   }
 

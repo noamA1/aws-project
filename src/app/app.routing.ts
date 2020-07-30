@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 const routes: Routes =[
   {
@@ -29,10 +30,10 @@ const routes: Routes =[
         loadChildren: './layouts/auth-layout/auth-layout.module#AuthLayoutModule'
       }
     ]
-  }, {
-    path: '**',
-    redirectTo: 'dashboard'
-  }
+  }, 
+    { path: 'not-found', component: ErrorPageComponent },
+    { path: '**', redirectTo: '/not-found' }
+  
 ];
 
 @NgModule({

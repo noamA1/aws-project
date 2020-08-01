@@ -9,6 +9,7 @@ import {
   chartExample1,
   chartExample2
 } from "../../variables/charts";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -24,7 +25,9 @@ export class DashboardComponent implements OnInit {
   userEmail;
   isconnected;
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private router: Router) {
+    // this.userEmail = this.router.getCurrentNavigation().extras.state.email;
+   }
 
   ngOnInit() {
     this.auth.isloggedin().subscribe(data => {

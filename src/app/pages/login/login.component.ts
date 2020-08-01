@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from 'src/app/shared/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { AuthService } from 'src/app/shared/auth.service';
 export class LoginComponent implements OnInit, OnDestroy {
   email: string;
   password: string;
-  constructor(public auth:AuthService) {}
+  constructor(public auth:AuthService,private router: Router) {}
 
   ngOnInit() {
   }
@@ -18,5 +19,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   signIn(){
     this.auth.logIn(this.email,this.password)
+    // this.router.navigate(['/dashboard'], { state: { email: this.email, message: true } });
   }
 }

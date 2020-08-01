@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
   public location: Location;
   userEmail;
   isconnected;
-  message: boolean;
+  message = false;
   user: any;
   email: string;
   firstName: string;
@@ -23,31 +23,49 @@ export class NavbarComponent implements OnInit {
   gender: string;
   age:number;
 
-  constructor(location: Location,  private element: ElementRef, private router: Router, public auth: AuthService) {
+  constructor(location: Location, private router: Router, public auth: AuthService) {
     this.location = location;
-    this.userEmail = this.router.getCurrentNavigation().extras.state.email;
-    console.log(this.router.getCurrentNavigation().extras.state.email);
+    if(this.router.getCurrentNavigation().extras.state !== undefined){
+      this.userEmail = this.router.getCurrentNavigation().extras.state.email;
+      this.email = this.userEmail;
+      this.message = this.router.getCurrentNavigation().extras.state.message;
+
+      if(this.message){
+        this.getUserInfo(this.userEmail)
+      }
+    }
   }
 
   ngOnInit() {
+
+  if(!this.message){
     this.auth.isloggedin().subscribe(data => {
+
       this.isconnected = data
       this.message = this.isconnected.message
-  
-
-      this.auth.getUser(this.userEmail).subscribe(user => {
-        this.user = user;
-        this.email = this.user.items[0].email;
-        this.firstName = this.user.items[0].firstName;
-        this.lastName = this.user.items[0].lastName;
-        this.gender = this.user.items[0].gender;
-        this.age = this.user.items[0].age;
-        console.log(this.firstName); 
-        console.log(this.lastName); 
-      })
-      // console.log(this.userEmail); 
+      this.userEmail = this.isconnected.user
+ 
+      if(this.message){
+        this.getUserInfo(this.userEmail)
+      }
     });
+     
+  }
+    // console.log(this.message)
+    
     this.listTitles = ROUTES.filter(listTitle => listTitle);
+  }
+  getUserInfo(email){
+    this.auth.getUser(email).subscribe(user => {
+
+      this.user = user;
+      // this.email = this.user.items[0].email;
+      this.firstName = this.user.items[0].firstName;
+      this.lastName = this.user.items[0].lastName;
+      this.gender = this.user.items[0].gender;
+      this.age = this.user.items[0].age;
+ 
+    })
   }
   getTitle(){
     var titlee = this.location.prepareExternalUrl(this.location.path());

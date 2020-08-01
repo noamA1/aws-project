@@ -1,4 +1,4 @@
-import {  ActivatedRoute } from '@angular/router';
+import {  Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -13,13 +13,12 @@ export class ConfrimComponent implements OnInit {
   code;
   userEmail;
 
-  constructor(public auth: AuthService, private activatedroute:ActivatedRoute) { }
+  constructor(public auth: AuthService, private router: Router) { 
+    this.userEmail = this.router.getCurrentNavigation().extras.state.email;
+    // console.log(this.router.getCurrentNavigation().extras.state.email);
+  }
 
   ngOnInit(): void {
-    this.activatedroute.params.subscribe(parms =>{
-      this.userEmail = parms.email
-      console.log(this.userEmail)
-    })
   }
 
   confrimCode(){

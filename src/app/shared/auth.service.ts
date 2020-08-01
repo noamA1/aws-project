@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,7 +26,7 @@ export class AuthService {
        () => {
            console.log("The POST observable is now completed.");
        });
-       this.router.navigate(['/register-confrim',email]);
+       this.router.navigate(['/register-confrim'], { state: { email: email }});
       }
   
   logIn(email, password){
@@ -33,20 +34,22 @@ export class AuthService {
       (val) => {
           console.log("POST call successful value returned in body", 
                       val);
+                      
       },
       response => {
           console.log("POST call in error", response);
       },
       () => {
           console.log("The POST observable is now completed.");
+          this.router.navigate(['/dashboard'], { state: { email: email, message: true } });
       });
 
-      this.router.navigate(['/dashboard'], { state: { email: email } });
   }
 
   getUser(email){
     return this.http.post("http://ec2-3-234-56-126.compute-1.amazonaws.com/crud/getUser",
           {email:email}).pipe(map(user => {
+            console.log(user)
             return user
           }))
   }

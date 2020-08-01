@@ -27,8 +27,8 @@ export class SidebarComponent implements OnInit {
   message: boolean;
 
   constructor(private router: Router, public auth: AuthService) {
-    this.userEmail = this.router.getCurrentNavigation().extras.state.email;
-    console.log(this.router.getCurrentNavigation().extras.state.email);
+    // this.userEmail = this.router.getCurrentNavigation().extras.state.email;
+    // console.log(this.router.getCurrentNavigation().extras.state.email);
    }
 
   ngOnInit() {

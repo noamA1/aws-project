@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,11 @@ export class AttendanceService {
   pipe = new DatePipe('en-US');
   now = Date.now();
   mySimpleFormat = this.pipe.transform(this.now, 'dd/MM/yyyy');
-  myShortTime = this.pipe.transform(this.now, 'shortTime')
+  myShortTime = this.pipe.transform(this.now, 'fullTime')
   message;
   similar;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   entranceAttendance(fd) {
     console.log(fd)
@@ -33,6 +34,7 @@ export class AttendanceService {
                   , { dateIn: this.mySimpleFormat, timeIn: this.myShortTime })
                   .subscribe(res => {
                     console.log(res);
+                    this.router.navigate(['/summary']);
                   });
               }
             }
@@ -52,10 +54,12 @@ export class AttendanceService {
               this.similar = res;
               console.log(this.myShortTime)
               if (this.similar.similar) {
+
                 this.http.post("http://ec2-3-234-56-126.compute-1.amazonaws.com/crud/postExit"
                   , { dateOut: this.mySimpleFormat, timeOut: this.myShortTime, computed: id })
                   .subscribe(res => {
                     console.log(res);
+                    this.router.navigate(['/summary']);
                   });
               }
             }
@@ -73,6 +77,7 @@ export class AttendanceService {
                   , { computed: computed,  dateIn: sd, timeIn: st, dateOut:ed,timeOut:et})
                   .subscribe(res => {
                     console.log(res);
+                    this.router.navigate(['/summary']);
                   });
   }
 }

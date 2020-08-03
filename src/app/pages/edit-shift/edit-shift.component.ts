@@ -39,11 +39,6 @@ export class EditShiftComponent implements OnInit {
       this.startTime = this.router.getCurrentNavigation().extras.state.timein
       this.endDate = this.router.getCurrentNavigation().extras.state.dateout
       this.endTime = this.router.getCurrentNavigation().extras.state.timeout
-      console.log(this.computed)
-      console.log(this.startDate)
-      console.log(this.startTime)
-      console.log(this.endDate)
-      console.log(this.endTime)
     }
     
   }
@@ -54,10 +49,6 @@ export class EditShiftComponent implements OnInit {
   }
 
   updateShift(){
-    console.log(this.startDate)
-    console.log(this.endDate)
-    console.log(this.startTime)
-    console.log(this.endTime)
     this.attendencesrervice.updateAttendence(this.computed,this.startDate, this.startTime, this.endDate,this.endTime)
   }
 }

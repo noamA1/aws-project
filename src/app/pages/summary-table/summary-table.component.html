@@ -31,7 +31,7 @@
                 <th scope="col"></th>
               </tr>
             </thead>
-            <tbody *ngFor="let attendance of attendanceArray">
+            <tbody *ngFor="let attendance of array">
               <tr>
                 <td>
                   {{attendance.dateIn}}
@@ -44,6 +44,9 @@
                 </td>
                 <td>
                   {{attendance.timeOut}}
+                </td>
+                <td>
+                  {{attendance.diff}}
                 </td>
                 <td class="text-right">
                   <div ngbDropdown placement="bottom-right">

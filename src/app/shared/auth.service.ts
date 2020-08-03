@@ -42,8 +42,8 @@ export class AuthService {
       () => {
           console.log("The POST observable is now completed.");
           this.router.navigate(['/dashboard'], { state: { email: email, message: true } });
-      });
-
+        });
+        
   }
 
   getUser(email){
@@ -76,6 +76,13 @@ export class AuthService {
     });
   }
 
+  updateProfile(fname, lname, id, age, gender){
+    this.http.post("http://ec2-3-234-56-126.compute-1.amazonaws.com/crud/editUser",
+    {firstName:fname, lastName:lname, id:id, age:age, gender: gender }).subscribe(res =>{
+      console.log(res);
+    });
+    
+  }
   logout(){
     this.http.post("http://ec2-3-234-56-126.compute-1.amazonaws.com/auth/logout",{})
               .subscribe(res =>{
@@ -83,6 +90,4 @@ export class AuthService {
                 this.router.navigate(['/login']);
               })
   }
-
-  
 }

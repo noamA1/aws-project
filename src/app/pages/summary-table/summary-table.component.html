@@ -23,61 +23,38 @@
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
-                <th scope="col">Date</th>
+                <th scope="col">Date In</th>
                 <th scope="col">Shift start time</th>
+                <th scope="col">Date Out</th>
                 <th scope="col">Shift end time</th>
                 <th scope="col">Total shift hours</th>
                 <th scope="col"></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody *ngFor="let attendance of attendanceArray">
               <tr>
-                <th scope="row">
-                  <div class="media align-items-center">
-                    <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                      <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
-                    </a>
-                    <div class="media-body">
-                      <span class="mb-0 text-sm">Argon Design System</span>
-                    </div>
-                  </div>
-                </th>
                 <td>
-                  $2,500 USD
+                  {{attendance.dateIn}}
                 </td>
                 <td>
-                  <span class="badge badge-dot mr-4">
-                    <i class="bg-warning"></i> pending
-                  </span>
+                  {{attendance.timeIn}}
                 </td>
                 <td>
-                  <div class="avatar-group">
-                    <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                      data-original-title="Ryan Tompson">
-                      <img alt="Image placeholder" src="../assets/img/theme/team-1-800x800.jpg" class="rounded-circle">
-                    </a>
-                    <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                      data-original-title="Romina Hadid">
-                      <img alt="Image placeholder" src="../assets/img/theme/team-2-800x800.jpg" class="rounded-circle">
-                    </a>
-                    <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                      data-original-title="Alexander Smith">
-                      <img alt="Image placeholder" src="../assets/img/theme/team-3-800x800.jpg" class="rounded-circle">
-                    </a>
-                    <a href="javascript:void(0)" class="avatar avatar-sm" data-toggle="tooltip"
-                      data-original-title="Jessica Doe">
-                      <img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
-                    </a>
-                  </div>
+                  {{attendance.dateOut}}
                 </td>
-
+                <td>
+                  {{attendance.timeOut}}
+                </td>
                 <td class="text-right">
                   <div ngbDropdown placement="bottom-right">
                     <a class="btn btn-sm btn-icon-only text-light" ngbDropdownToggle>
                       <i class="fas fa-ellipsis-v"></i>
                     </a>
                     <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                      <a class="dropdown-item" routerLink="/shifts/edit">Edit</a>
+                      <a *ngIf="attendance.dateOut == null" class="dropdown-item"
+                        (click)="setEndShift(attendance.computed)">set shift end</a>
+                      <a class="dropdown-item" (click)="updateShift(attendance.computed,attendance.dateIn,attendance.timeIn,
+                                        attendance.dateOut,attendance.timeOut)">Edit</a>
                       <a class="dropdown-item" (click)="deleteShift()">Delete</a>
                     </div>
                   </div>
@@ -86,7 +63,42 @@
             </tbody>
           </table>
         </div>
-        <div class="card-footer py-4">
+        <!-- <div class = "table">
+          <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    
+            <ng-container matColumnDef="Date start">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Date Start </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.dateIn}} </mat-cell>
+            </ng-container>
+    
+            <ng-container matColumnDef="Time start">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Time start </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.hourIn}} </mat-cell>
+            </ng-container>
+    
+            <ng-container matColumnDef="Date end">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Date end </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.dateOut}} </mat-cell>
+            </ng-container>
+    
+            <ng-container matColumnDef="Time end">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Time end </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.timeOut}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="action">
+              <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+              <mat-cell *matCellDef="let element" class="action-link"> 
+                <a (click)="openDialog(element)"><i class="fas fa-pen"></i></a> | 
+                <a (click)="delete(element.id)"><i class="far fa-trash-alt"></i></a>  
+              </mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+          <mat-paginator [length]="length" [pageSize]="5" [pageSizeOptions]="[5, 10, 20, 25]" showFirstLastButtons>
+          </mat-paginator>
+        </div> -->
+        <!-- <div class="card-footer py-4">
           <nav aria-label="...">
             <ul class="pagination justify-content-end mb-0">
               <li class="page-item disabled">
@@ -110,7 +122,7 @@
               </li>
             </ul>
           </nav>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http'; import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -18,6 +18,9 @@ import { EditShiftComponent } from 'src/app/pages/edit-shift/edit-shift.componen
 import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -28,10 +31,13 @@ import { MatNativeDateModule } from '@angular/material/core';
     HttpClientModule,
     NgbModule,
     ClipboardModule,
-    WebcamModule ,
+    WebcamModule,
     MatCardModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSortModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   declarations: [
     DashboardComponent,
@@ -41,11 +47,17 @@ import { MatNativeDateModule } from '@angular/material/core';
     AddShiftComponent,
     EditProfileComponent,
     EditShiftComponent,
+    // MatSortModule,
+    // MatTableModule,
+    // MatPaginatorModule
   ],
-  providers: [  
+  providers: [
     MatDatepickerModule,
-    MatNativeDateModule  
+    MatNativeDateModule,
+    // MatSortModule,
+    // MatTableModule,
+    // MatPaginatorModule
   ],
 })
 
-export class AdminLayoutModule {}
+export class AdminLayoutModule { }

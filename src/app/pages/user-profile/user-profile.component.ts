@@ -16,6 +16,7 @@ export class UserProfileComponent implements OnInit {
   last:string;
   gender: string;
   age:number;
+  id;
 
   constructor(private auth:AuthService) { }
 
@@ -32,7 +33,12 @@ export class UserProfileComponent implements OnInit {
         this.last = this.user.items[0].lastName;
         this.gender = this.user.items[0].gender;
         this.age = this.user.items[0].age;
+        this.id = this.user.items[0].id;
       })
     }); 
+  }
+
+  editProfile(){
+    this.auth.updateProfile(this.first, this.last, this.id, this.age, this.gender)
   }
 }

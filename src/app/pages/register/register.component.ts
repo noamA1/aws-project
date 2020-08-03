@@ -15,10 +15,16 @@ export class RegisterComponent implements OnInit {
   email: string;
   phone: string;
   password: string;
+  minDate: Date;
+  maxDate: Date;
+  birth:Date;
 
 
 
   constructor(public auth: AuthService, private router: Router) {
+    const currentYear = new Date().getFullYear();
+    this.minDate = new Date(currentYear - 100, 0, 1);
+    this.maxDate = new Date(currentYear - 1, 0, 1);
   }
 
   ngOnInit() {
@@ -26,7 +32,7 @@ export class RegisterComponent implements OnInit {
 
   signUp() {
 
-    this.auth.register(this.email, this.password, this.firstname, this.lastname, this.gender);
+    this.auth.register(this.email, this.password, this.firstname, this.lastname, this.gender, this.birth);
     
   }
 }

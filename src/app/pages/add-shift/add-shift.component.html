@@ -18,10 +18,10 @@
         <div class="p-1">
           <webcam [height]="350" [width]="350" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
             *ngIf="showWebcam" [videoOptions]="videoOptions" (initError)="handleInitError($event)"></webcam>
-          <br />
+          <br/>
         </div>
         <div class="pb-2">
-          <button class="btn btn-primary" (click)="triggerSnapshot()">Capture Image</button>
+          <button class="btn btn-primary" (click)="triggerSnapshot()">OK</button>
         </div>
         <div (pictureTaken)="handleImage1($event)"></div>
       </div>

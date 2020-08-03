@@ -4,8 +4,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-5 col-md-6">
           <h1 class="text-white">Welcome!</h1>
-          <p class="text-lead text-light">Use these awesome forms to
-            login or create new account in your project for free.</p>
+          <p class="text-lead text-light">Create new account or login to the old one </p>
         </div>
       </div>
     </div>
@@ -48,7 +47,10 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                 </div>
-                <input class="form-control" [(ngModel)]="phone" placeholder="Phone number" type="tel" name="phone">
+                <input matInput [matDatepicker]="dp3" name="bdate" [min]="minDate" [max]="maxDate" [(ngModel)]="birth"
+                       disabled="disabled">
+                <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+                <mat-datepicker #dp3 disabled="false"></mat-datepicker>
               </div>
             </div>
             <div class="form-group">
@@ -84,8 +86,6 @@
                   name="password">
               </div>
             </div>
-            <!-- <div class="text-muted font-italic"><small>password strength:
-                <span class="text-success font-weight-700">strong</span></small></div> -->
             <div class="text-center">
               <button type="button" class="btn btn-primary mt-4" (click)="signUp()">Create account</button>
             </div>

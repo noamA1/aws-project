@@ -24,8 +24,10 @@ export class SummaryTableComponent implements OnInit {
   // pipe = new DatePipe();
   pipe = new DatePipe('en-US');
   now = Date.now();
-  mySimpleFormat = this.pipe.transform(this.now, 'dd/MM/yyyy');
-  myShortTime = this.pipe.transform(this.now, 'fullTime')
+  // mySimpleFormat = this.pipe.transform(this.now, 'dd/MM/yyyy');
+  // myShortTime = this.pipe.transform(this.now, 'fullTime')
+  page = 1;
+  pageSize = 10;
 
 
 
@@ -41,26 +43,14 @@ export class SummaryTableComponent implements OnInit {
       data => {
         this.attendanceData = data;
         this.attendanceArray = this.attendanceData.items;
-        // console.log(typeof (this.myShortTime))
-        // let date = this.attendanceArray[2].dateIn + ' ' + this.attendanceArray[2].timeIn;
-        // let date1 = this.attendanceArray[2].dateOut + ' ' + this.attendanceArray[2].timeOut;
-        // let time = moment(date, 'YYYY-MM-DD HH:mm:ss a');
-        // let time1 = moment(date1, 'YYYY-MM-DD HH:mm:ss a');
-
-        // console.log(time)
-        // console.log(time1)
-        // console.log(moment.duration(time1 - date).asHours())
-
-        // console.log(this.myShortTime)
-
         this.attendanceArray.forEach(element => {
+          // moment.locale('en-il');
           let date = element.dateIn + ' ' + element.timeIn;
           let date1 = element.dateOut + ' ' + element.timeOut;
           let time:any;
           let time1: any;
           time = moment(date, 'YYYY-MM-DD HH:mm:ss a');
           time1 = moment(date1, 'YYYY-MM-DD HH:mm:ss a');
-          // moment.duration(time1 - time).asHours()
           this.array.push({
             computed:element.computed,
             dateIn: element.dateIn,
@@ -70,6 +60,7 @@ export class SummaryTableComponent implements OnInit {
             diff:moment.duration(time1 - time).asHours().toFixed(2)
           })
         });
+        
         console.log(this.array)
       }
     )

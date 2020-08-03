@@ -1,4 +1,5 @@
-<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+  style="min-height: 600px; background-image: url(assets/img/theme/clock.jpg); background-size: cover; background-position: center top;">
   <!-- Mask -->
   <span class="mask bg-gradient-danger opacity-8"></span>
   <!-- Header container -->
@@ -7,7 +8,7 @@
       <div class="col-lg-7 col-md-10">
         <h1 class="display-2 text-white">Hello {{first}}</h1>
         <p class="text-white mt-0 mb-5">This is your profile page. You can update you information here if you want</p>
-        <a (click) = "editProfile()" class="btn btn-info">Edit profile</a>
+        <a (click)="editProfile()" class="btn btn-info">Edit profile</a>
       </div>
     </div>
   </div>
@@ -20,13 +21,15 @@
           <div class="col-lg-3 order-lg-2">
             <div class="card-profile-image">
               <a href="javascript:void(0)">
-                <img src="assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                
+               
+                <img src="assets/img/theme/pngwave.png" class="rounded-circle">
               </a>
             </div>
           </div>
         </div>
         <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
-          
+
         </div>
         <div class="card-body pt-0 pt-md-4">
           <div class="row">
@@ -62,8 +65,9 @@
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-email">Email address</label>
-                    <input type="email" id="input-email" class="form-control form-control-alternative" value="{{email}}" disabled>
-                      
+                    <input type="email" id="input-email" class="form-control form-control-alternative" value="{{email}}"
+                      disabled>
+
                   </div>
                 </div>
               </div>
@@ -71,21 +75,24 @@
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-first-name">First name</label>
-                    <input type="text" id="input-first-name" [(ngModel)]="first" name="fname" class="form-control form-control-alternative" value="{{first}}">
+                    <input type="text" id="input-first-name" [(ngModel)]="first" name="fname"
+                      class="form-control form-control-alternative" value="{{first}}">
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-last-name">Last name</label>
-                    <input type="text" [(ngModel)]="last" name="lname" id="input-last-name" class="form-control form-control-alternative" value="{{last}}">
+                    <input type="text" [(ngModel)]="last" name="lname" id="input-last-name"
+                      class="form-control form-control-alternative" value="{{last}}">
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="form-control-label" for="input-first-name">Age</label>
-                    <input type="text" id="input-first-name" [(ngModel)]="age" name="age" class="form-control form-control-alternative" value="{{age}}">
+                    <label class="form-control-label" for="input-first-name">Birthday</label>
+                    <input type="text" [(ngModel)]="birth" name="birthd" id="input-last-name"
+                    class="form-control form-control-alternative" value="{{birth}}">
                   </div>
                 </div>
 

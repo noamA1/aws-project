@@ -12,9 +12,9 @@ export class AuthService {
   URL = 'http://ec2-3-234-56-126.compute-1.amazonaws.com‏';
   constructor(private http: HttpClient, private router: Router) { }
 
-  register(email:string, password: string, firstName: string, lastName:string, gender:string){
+  register(email:string, password: string, firstName: string, lastName:string, gender:string, age){
     this.http.post("http://ec2-3-234-56-126.compute-1.amazonaws.com/auth/signup",{email: email, password: password,
-    firstName: firstName, lastName: lastName, gender: gender, age:"30"}).subscribe(
+    firstName: firstName, lastName: lastName, gender: gender, age:age}).subscribe(
        (val) => {
            console.log("POST call successful value returned in body", 
                        val);

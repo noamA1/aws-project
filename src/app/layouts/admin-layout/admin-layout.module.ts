@@ -35,9 +35,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatCardModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSortModule,
-    MatTableModule,
-    MatPaginatorModule
   ],
   declarations: [
     DashboardComponent,
@@ -47,16 +44,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     AddShiftComponent,
     EditProfileComponent,
     EditShiftComponent,
-    // MatSortModule,
-    // MatTableModule,
-    // MatPaginatorModule
   ],
   providers: [
     MatDatepickerModule,
     MatNativeDateModule,
-    // MatSortModule,
-    // MatTableModule,
-    // MatPaginatorModule
   ],
 })
 

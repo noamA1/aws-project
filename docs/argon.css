@@ -18273,9 +18273,7 @@ textarea[resize='horizontal']
     font-size: 4.25rem;
 }
 .icon-xl + .icon-text
-{
-    width: calc(100% - $icon-size-xl - 1);
-}
+
 
 .icon-lg
 {
@@ -18287,10 +18285,6 @@ textarea[resize='horizontal']
 {
     font-size: 3.25rem;
 }
-.icon-lg + .icon-text
-{
-    width: calc(100% - $icon-size-lg - 1);
-}
 
 .icon-sm
 {
@@ -18301,10 +18295,6 @@ textarea[resize='horizontal']
 .icon-sm svg
 {
     font-size: 1.25rem;
-}
-.icon-sm + .icon-text
-{
-    width: calc(100% - $icon-size-sm - 1);
 }
 
 .icon-shape

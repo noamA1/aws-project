@@ -26,10 +26,6 @@
 	i, svg {
 		font-size: $icon-size-xl - .75;
 	}
-
-    + .icon-text {
-    	width: calc(100% - $icon-size-xl - 1);
-    }
 }
 
 
@@ -42,10 +38,6 @@
 	i, svg {
 		font-size: $icon-size-lg - .75;
 	}
-
-    + .icon-text {
-    	width: calc(100% - $icon-size-lg - 1);
-    }
 }
 
 
@@ -58,8 +50,4 @@
 	i, svg {
 		font-size: $icon-size-sm - .75;
 	}
-
-    + .icon-text {
-    	width: calc(100% - $icon-size-sm - 1);
-    }
 }

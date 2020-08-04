@@ -7,18 +7,19 @@ import { SummaryTableComponent } from 'src/app/pages/summary-table/summary-table
 import { AddShiftComponent } from 'src/app/pages/add-shift/add-shift.component';
 import { EditShiftComponent } from 'src/app/pages/edit-shift/edit-shift.component';
 import { UploadProfilePictureComponent } from 'src/app/pages/upload-profile-picture/upload-profile-picture.component';
+import { AuthGuard } from 'src/app/shared/gurad/auth.guard';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard',      component: DashboardComponent },
-    { path: 'summary',         component: SummaryTableComponent },
+    { path: 'dashboard',      component: DashboardComponent, canActivate: [AuthGuard] },
+    { path: 'summary',         component: SummaryTableComponent, canActivate: [AuthGuard] },
     { path: 'upload',       component: UploadProfilePictureComponent },
     { path: 'user', children: [
-        { path: 'profile',   component: UserProfileComponent },
-        { path: 'edit', component: EditProfileComponent },
+        { path: 'profile',   component: UserProfileComponent, canActivate: [AuthGuard] },
+        { path: 'edit', component: EditProfileComponent, canActivate: [AuthGuard] },
     ] },
     { path: 'shifts', children: [
-        { path: 'add',   component: AddShiftComponent },
-        { path: 'edit', component: EditShiftComponent },
+        { path: 'add',   component: AddShiftComponent, canActivate: [AuthGuard] },
+        { path: 'edit', component: EditShiftComponent,canActivate: [AuthGuard] },
     ] },
    
 ];

@@ -57,8 +57,8 @@ export class SummaryTableComponent implements OnInit {
       })
   }
 
-  deleteShift() {
-
+  deleteShift(id) {
+    this.attendanceservice.deleteShift(id);
   }
 
   setEndShift(id) {

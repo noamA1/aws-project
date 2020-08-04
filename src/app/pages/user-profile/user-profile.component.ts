@@ -62,4 +62,7 @@ export class UserProfileComponent implements OnInit {
     this.auth.updateProfile(this.first, this.last, this.id, this.birth, this.gender)
     
   }
+  editProfilePicture(){
+    
+  }
 }

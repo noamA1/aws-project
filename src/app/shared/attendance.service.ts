@@ -80,4 +80,13 @@ export class AttendanceService {
                     this.router.navigate(['/summary']);
                   });
   }
+
+  deleteShift(computed){
+    this.http.post("http://ec2-3-234-56-126.compute-1.amazonaws.com/crud/deleteAttendance"
+                  , { computed: computed})
+                  .subscribe(res => {
+                    console.log(res);
+                    this.router.navigate(['/summary']);
+                  });
+  }
 }

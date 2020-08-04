@@ -1,7 +1,7 @@
 import { AuthService } from 'src/app/shared/auth.service';
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
@@ -51,7 +51,6 @@ export class NavbarComponent implements OnInit {
     });
      
   }
-    // console.log(this.message)
     
     this.listTitles = ROUTES.filter(listTitle => listTitle);
   }
@@ -59,7 +58,6 @@ export class NavbarComponent implements OnInit {
     this.auth.getUser(email).subscribe(user => {
 
       this.user = user;
-      // this.email = this.user.items[0].email;
       this.firstName = this.user.items[0].firstName;
       this.lastName = this.user.items[0].lastName;
       this.gender = this.user.items[0].gender;

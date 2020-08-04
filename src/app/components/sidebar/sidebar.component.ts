@@ -27,8 +27,6 @@ export class SidebarComponent implements OnInit {
   message: boolean;
 
   constructor(private router: Router, public auth: AuthService) {
-    // this.userEmail = this.router.getCurrentNavigation().extras.state.email;
-    // console.log(this.router.getCurrentNavigation().extras.state.email);
    }
 
   ngOnInit() {
@@ -36,13 +34,12 @@ export class SidebarComponent implements OnInit {
       this.isconnected = data
       this.message = this.isconnected.message
       if (this.message) {
-        // this.userEmail = this.isconnected.user
         this.menuItems = ROUTES.filter(menuItem => menuItem);
         this.router.events.subscribe((event) => {
           this.isCollapsed = true;
         });
       }
-      // console.log(this.userEmail); 
+      
       else {
         this.menuItems = [
           { path: '/login', title: 'Log-In', icon: 'ni-tv-2 text-primary', class: '' },

@@ -19,6 +19,5 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   signIn(){
     this.auth.logIn(this.email,this.password)
-    // this.router.navigate(['/dashboard'], { state: { email: this.email, message: true } });
   }
 }

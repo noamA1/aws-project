@@ -26,7 +26,6 @@ export class AddShiftComponent implements OnInit {
   constructor(private attendencesrervice: AttendanceService, private router: Router) {
     if (this.router.getCurrentNavigation().extras.state !== undefined) {
       this.computed = this.router.getCurrentNavigation().extras.state.computed
-      console.log(this.computed)
     }
   }
 
@@ -36,7 +35,6 @@ export class AddShiftComponent implements OnInit {
         this.multipleWebcamsAvailable = mediaDevices && mediaDevices.length > 1;
       });
   }
-
 
   public triggerSnapshot(): void {
     this.trigger.next();
@@ -56,12 +54,10 @@ export class AddShiftComponent implements OnInit {
     else {
       this.attendanceResponse = this.attendencesrervice.entranceAttendance(fd);
     }
-    console.log(this.attendanceResponse)
   }
   DataURIToBlob(dataURI: string): Blob {
     const splitDataURI = dataURI.split(',')
     const byteString = splitDataURI[0].indexOf('base64') >= 0 ? atob(splitDataURI[1]) : decodeURI(splitDataURI[1]);
-    // const mimeString = splitDataURI[0].split(':')[1].split(';')[0];
 
     const ia = new Uint8Array(byteString.length);
     for (let i = 0; i < byteString.length; i++) {

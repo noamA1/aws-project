@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { Time } from '@angular/common';
 import { Router } from '@angular/router';
 import { AttendanceService } from 'src/app/shared/attendance.service';
 
@@ -32,7 +31,6 @@ export class EditShiftComponent implements OnInit {
     const currentYear = new Date().getFullYear();
     this.minDate = new Date(currentYear - 1, 0, 1);
     this.maxDate = new Date();
-    console.log(this.router.getCurrentNavigation())
     if (this.router.getCurrentNavigation().extras.state != null) {
       this.computed = this.router.getCurrentNavigation().extras.state.computed
       this.startDate = this.router.getCurrentNavigation().extras.state.datein
@@ -40,12 +38,9 @@ export class EditShiftComponent implements OnInit {
       this.endDate = this.router.getCurrentNavigation().extras.state.dateout
       this.endTime = this.router.getCurrentNavigation().extras.state.timeout
     }
-    
   }
 
   ngOnInit(): void {
-  
-
   }
 
   updateShift(){

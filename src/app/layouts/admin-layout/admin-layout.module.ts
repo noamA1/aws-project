@@ -9,19 +9,13 @@ import { WebcamModule } from 'ngx-webcam';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
-import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SummaryTableComponent } from 'src/app/pages/summary-table/summary-table.component';
 import { AddShiftComponent } from 'src/app/pages/add-shift/add-shift.component';
-import { EditProfileComponent } from 'src/app/pages/edit-profile/edit-profile.component';
 import { EditShiftComponent } from 'src/app/pages/edit-shift/edit-shift.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatSortModule } from '@angular/material/sort';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-// import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [
@@ -39,10 +33,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
   declarations: [
     DashboardComponent,
     UserProfileComponent,
-    TablesComponent,
     SummaryTableComponent,
     AddShiftComponent,
-    EditProfileComponent,
     EditShiftComponent,
   ],
   providers: [

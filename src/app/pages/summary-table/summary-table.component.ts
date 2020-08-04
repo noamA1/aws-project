@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AttendanceService } from 'src/app/shared/attendance.service';
 import { AuthService } from 'src/app/shared/auth.service';
 import { Router } from '@angular/router';
-import { DatePipe } from '@angular/common';
 import * as moment from 'moment';
-
 
 @Component({
   selector: 'app-summary-table',
@@ -23,8 +21,6 @@ export class SummaryTableComponent implements OnInit {
   array = [];
   page = 1;
   pageSize = 10;
-
-
 
   ngOnInit(): void {
 

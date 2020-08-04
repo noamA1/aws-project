@@ -20,7 +20,6 @@ export class UploadProfilePictureComponent implements OnInit {
   }
   
   sendImge() {
-    console.log(this.fileObj);
     const fd = new FormData();
     fd.append('image', this.fileObj, this.fileObj.name);
     this.auth.sendImage(fd);

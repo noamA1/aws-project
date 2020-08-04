@@ -15,7 +15,6 @@ export class ConfrimComponent implements OnInit {
 
   constructor(public auth: AuthService, private router: Router) { 
     this.userEmail = this.router.getCurrentNavigation().extras.state.email;
-    // console.log(this.router.getCurrentNavigation().extras.state.email);
   }
 
   ngOnInit(): void {

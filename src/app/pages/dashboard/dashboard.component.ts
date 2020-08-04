@@ -11,7 +11,6 @@ import {
   chartExample1,
   chartExample2
 } from "../../variables/charts";
-import { Router } from '@angular/router';
 import { AttendanceService } from 'src/app/shared/attendance.service';
 
 @Component({
@@ -71,9 +70,8 @@ export class DashboardComponent implements OnInit {
   countData = [];
   lables = ['January','February','March','April','May','June','July','August','September','October','November','December']
 
-  constructor(private auth: AuthService, private router: Router, 
+  constructor(private auth: AuthService, 
     private attendanceservice: AttendanceService, private chartservice: ChartService) {
-    // this.userEmail = this.router.getCurrentNavigation().extras.state.email;
   }
 
   ngOnInit() {
@@ -183,7 +181,6 @@ export class DashboardComponent implements OnInit {
           )
           this.chartservice.createSumChat(this.lables,this.data)
           this.chartservice.createCountChat(this.lables, this.countData)
-          console.log(this.countData)
         })
     });
 

@@ -1,4 +1,4 @@
-import { Router, NavigationEnd } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth.service';
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
@@ -58,11 +58,6 @@ export class UserProfileComponent implements OnInit {
   }
 
   editProfile(){
-    console.log(this.birth)
     this.auth.updateProfile(this.first, this.last, this.id, this.birth, this.gender)
-    
-  }
-  editProfilePicture(){
-    
   }
 }

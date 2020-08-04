@@ -7,7 +7,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { LoginComponent } from '../../pages/login/login.component';
 import { RegisterComponent } from '../../pages/register/register.component';
-import { ForgotPasswordComponent } from 'src/app/pages/forgot-password/forgot-password.component';
 import { ConfrimComponent } from 'src/app/pages/confrim/confrim.component';
 import { UploadProfilePictureComponent } from 'src/app/pages/upload-profile-picture/upload-profile-picture.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -25,7 +24,6 @@ import { MatNativeDateModule } from '@angular/material/core';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    ForgotPasswordComponent,
     ConfrimComponent,
     UploadProfilePictureComponent,
   ],
